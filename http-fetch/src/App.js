@@ -8,15 +8,16 @@ const App = observer(() => {
 
   const handlesubmit = () => {
     store.fetchPost();
+    console.log("handle submit is called");
   }
 
-
+console.log("app is called");
 
 
   return (
     <>
     <h1>fetch</h1>
-    <button onClick={handlesubmit}> fetch posts</button>
+    <button onClick={handlesubmit} > fetch posts</button>
     <PostList/>
     </>
   )

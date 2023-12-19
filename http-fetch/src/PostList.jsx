@@ -10,13 +10,14 @@ const PostList = observer(
             return <div> Loading Posts</div>
         }
 
-
+        console.log("Post list is called");
         return (
             <>
                 <ul>
                     {store.posts.map((post) => (
                         <li key={post.id}>
-                            <h3>{post.title}</h3>
+                            <h1>{post.name}</h1>
+                            <h3>{post.email}</h3>
                             <p>{post.body}</p>
                         </li>
                     ))}

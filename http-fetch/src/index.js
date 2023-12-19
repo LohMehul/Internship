@@ -4,10 +4,10 @@ import { PostStoreContext, postStore } from "./store";
 import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
+
     <PostStoreContext.Provider value={postStore}>
       <App />
-    </PostStoreContext.Provider>
-  </React.StrictMode>,
+    </PostStoreContext.Provider>,
+
   document.getElementById("root")
 );
