@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
-import { observable, configure, action, computed } from "mobx"
+import { observable, configure, action, computed, makeAutoObservable } from "mobx"
 import { observer } from "mobx-react"
 
 configure({ enforceActions: true })
 
 class Store {
+
+  constructor(){
+    makeAutoObservable(this, {
+      employeesList: observable,
+      clearList: action,
+      pushEmployee: action,
+      totalSum: computed
+    });
+  }
   employeesList = [
     { name: "John Doe", salary: 150 },
     { name: "Richard Roe", salary: 225 },
@@ -27,14 +36,10 @@ class Store {
   get highEarnersCount() {
     return this.employeesList.filter(e => e.salary > 500).length
   }
+
 }
 
-observable(Store, {
-  employeesList: observable,
-  clearList: action,
-  pushEmployee: action,
-  totalSum: computed
-})
+
 
 const appStore = new Store()
 
