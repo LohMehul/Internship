@@ -9,7 +9,7 @@ export default function Login() {
 	return (
 		<div className="wrapper signIn">
 			<div className="illustration">
-				<img src="https://source.unsplash.com/random" alt="illustration" />
+				<img src="https://picsum.photos/seed/picsum/200/300" alt="illustration" />
 			</div>
 			<div className="form">
 				<div className="heading">LOGIN</div>

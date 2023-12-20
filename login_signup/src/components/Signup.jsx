@@ -5,7 +5,7 @@ export default function Signup() {
   return (
     <div className="wrapper signUp">
       <div className="illustration">
-        <img src="https://source.unsplash.com/random" alt="illustration" />
+        <img src="https://picsum.photos/seed/picsum/200/300" alt="illustration" />
       </div>
       <div className="form">
         <div className="heading">CREATE AN ACCOUNT</div>
