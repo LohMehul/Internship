@@ -10,6 +10,10 @@ const Form = () => {
     const [card, setcard] = useState(false);
     const navigate = useNavigate();
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
     const [pass_eye, setpass_eye] = useState(true);
     const [signup_pass, setsignup_pass] = useState("password");
 
@@ -17,11 +21,30 @@ const Form = () => {
     const [signup_confpass, setsignup_confpass] = useState("password");
 
 
+    const handleLogin = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
 
-    const [formState, setFormState] = useState({
-        email: "",
-        password: ""
-    })
+            const data = await response.json();
+
+            if (data.success) {
+                // Handle successful login (e.g., store token, redirect, etc.)
+                console.log('Login successful');
+            } else {
+                setError('Invalid credentials');
+            }
+        } catch (error) {
+            console.error('There was an error logging in:', error);
+            setError('Error logging in');
+        }
+    };
+
 
     const [upinput, setupinput] = useState({
         fname: "",
@@ -45,12 +68,13 @@ const Form = () => {
                 // needed so express parser says OK to read
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({upinput
+            body: JSON.stringify({
+                upinput
             })
         })
         console.log("data", response);
     }
-    
+
     const LoginPage = () => {
         if (card) {
             setcard(false);
@@ -231,16 +255,20 @@ const Form = () => {
                                 <h5>Login to your account</h5>
 
                             </div>
-                            <div className="input_text" onChange={(e) => {setFormState(e.target.value) }}>
-                                <input type="text" />
-                                <span>Email</span>
-                            </div>
-                            <div className="input_text">
-                                <input type="password" onChange={(e) => {setFormState(e.target.value) }} />
-                                <span>Password</span>
-                            </div>
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                             <div className="btn">
-                                <button onClick={login}>SIGN IN</button>
+                                <button onClick={handleLogin}>Login</button>
                                 <p>Don't have an account yet? <a onClick={SignupPage} href="#">SignUp Now</a></p>
                             </div>
 
