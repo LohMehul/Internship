@@ -1,58 +1,3 @@
-// import React, { useState } from 'react';
-// import { PlusOutlined } from '@ant-design/icons';
-// import {
-//     Button,
-//     DatePicker,
-//     Form,
-//     Input,
-//     InputNumber,
-//     Radio,
-//     Select,
-//     Slider,
-//     Switch,
-//     TreeSelect,
-//     Upload,
-// } from 'antd';
-
-// const { RangePicker } = DatePicker;
-// const { TextArea } = Input;
-// // const normFile = (e) => {
-// //     if (Array.isArray(e)) {
-// //         return e;
-// //     }
-// //     return e?.fileList;
-// // };
-// const FormDisabledDemo = () => {
-
-
-//     const handlesubmit = () => {
-
-//     }
-//     // const [componentDisabled, setComponentDisabled] = useState(false);
-//     return (
-//         <>
-
-//             <Form labelCol={{span: 4,}} wrapperCol={{span: 14, }} layout="horizontal"
-//                 // disabled={componentDisabled}
-//                 style={{
-//                     maxWidth: 600,
-//                 }}
-//             >
-
-
-//                 <Form.Item label="UserName">
-//                     <Input placeholder='Username'/>
-//                 </Form.Item>
-//                 <Form.Item label="Password">
-//                     <Input type='password' placeholder='Password'/>
-//                 </Form.Item>
-//                 <Button onClick={handlesubmit}>submit</Button>
-//             </Form>
-//         </>
-//     );
-// };
-// export default () => <FormDisabledDemo />;
-
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import "../CSS/form.css"
@@ -64,23 +9,16 @@ const Form = () => {
     const { useState } = React;
     const [card, setcard] = useState(false);
     const navigate = useNavigate();
-    const [errorMsg, setErrorMsg] = useState(false);
 
     const [pass_eye, setpass_eye] = useState(true);
     const [signup_pass, setsignup_pass] = useState("password");
-    const [passwo_eye, setpasswo_eye] = useState(false);
 
     const [conf_eye, setconf_eye] = useState(true);
     const [signup_confpass, setsignup_confpass] = useState("password");
-    const [confpass_eye, setconfpass_eye] = useState(false);
 
-    const [login_eye, setlogin_eye] = useState(true);
     const [login_pass, setlogin_pass] = useState("password");
-    const [logeye, setlogeye] = useState(false);
 
-    const [agree, setagree] = useState(false);
 
-    const [remtick, setremtick] = useState(false);
     const [formState, setFormState] = useState({
         email: "",
         password: ""
@@ -108,19 +46,12 @@ const Form = () => {
                 // needed so express parser says OK to read
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                username: formState.email,
-                email: formState.email,
-                uppass: formState.password
+            body: JSON.stringify({upinput
             })
         })
-        console.log("data",response);
-        if (response.status !== 200) {
-            return alert("Something went wrong");
-        }
-        navigate("/");
+        console.log("data", response);
     }
-
+    
     const LoginPage = () => {
         if (card) {
             setcard(false);
@@ -129,7 +60,6 @@ const Form = () => {
             setcard(true);
         }
     }
-
     const SignupPage = () => {
         if (card) {
             setcard(false);
@@ -140,59 +70,24 @@ const Form = () => {
     }
 
     const PassEye = () => {
-        if (signup_pass == "password") {
+        if (signup_pass === "password") {
             setsignup_pass("text");
             setpass_eye(false);
-            setpasswo_eye(true);
         }
         else {
             setsignup_pass("password");
             setpass_eye(true);
-            setpasswo_eye(false);
         }
     }
 
     const ConfPassEye = () => {
-        if (signup_confpass == "password") {
+        if (signup_confpass === "password") {
             setsignup_confpass("text");
             setconf_eye(false);
-            confpass_eye(true);
         }
         else {
             setsignup_confpass("password");
             setconf_eye(true);
-            confpass_eye(false);
-        }
-    }
-
-    // const LoginEye = () => {
-    //     if (login_pass == "password") {
-    //         setlogin_pass("text");
-    //         setlogin_eye(false);
-    //         setlogeye(true);
-    //     }
-    //     else {
-    //         setlogin_pass("password");
-    //         setlogin_eye(true);
-    //         setlogeye(false);
-    //     }
-    // }
-
-    // const AgreeTick = () => {
-    //     if (agree) {
-    //         setagree(false);
-    //     }
-    //     else {
-    //         setagree(true);
-    //     }
-    // }
-
-    const RemTick = () => {
-        if (remtick) {
-            setremtick(false);
-        }
-        else {
-            setremtick(true);
         }
     }
 
@@ -207,75 +102,34 @@ const Form = () => {
         });
     }
 
-    // const login = (event) => {
+    // const login1 = async (event) => {
     //     event.preventDefault();
-    //     console.log("registration data", upinput);
-    //     // fetch("http://localhost/API/registration", {
-    //     // fetch("http://localhost:5000/users", {
-    //     //   method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //     //   mode: "no-cors", // no-cors, *cors, same-origin
-    //     //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //     //   headers: {
-    //     //     "Content-Type": "application/json",
-    //     //     // 'Content-Type': 'application/x-www-form-urlencoded',
-    //     //   },
-    //     //   body: JSON.stringify("sting",inp)}).then((res) => res.json()).then((result) => {console.log("result",result);
-    //     //   navigate("/login");
-    //     // })
-    //     fetch('http://localhost:5000/users', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(upinput)
-    //     }).then(response => { navigate("/dashboard"); console.log(response); })
+    //     try {
+    //         const response = await axios.get(`http://localhost:5000/users?upmail=${upinput.upemail}&uppass=${upinput.uppass}`).then((response) => {
+    //             console.log("responce from login side", response);
+    //             if (response.status === 201) {
+    //                 console.log("server connected", response.data);
+    //             } else {
+    //                 console.log("error while connecting to the server");
+    //             }
+
+    //         }).catch((error) => {
+    //             console.log("inside catch", error);
+    //             if (error.response) {
+    //                 console.log(error.response);
+    //                 console.log("server responded");
+    //             } else if (error.request) {
+    //                 console.log("network error");
+    //             } else {
+    //                 console.log(error);
+    //             }
+    //         });
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
     // }
 
-    const login1 = async (event) => {
-        event.preventDefault();
-        // console.log("save data", inp);
-        // fetch(`https://jayramin.000webhostapp.com/loginget?username=${inp.username}&password=${inp.password}`).then((res) => res.json()).then((result) => {
-        // console.log(result);
-        // })
-        // axios.post("http://localhost:5000/users", {
-        //   username: inp.username,
-        //   password: inp.password
-        // })
-        // .then((response) => {
-        //   console.log(response);
-        // });
-        try {
-            const response = await axios.get(`http://localhost:5000/users?upmail=${upinput.upemail}&uppass=${upinput.uppass}`).then((response) => {
-                console.log("responce from login side", response);
-                if (response.status === 200) {
-                    // console.log("server connected",response.data);
-                    console.log("server connected", response.data);
-                    // if (response.data[0].role == 1) {
-                    //     navigate("/admindashboard")
-                    // } else {
-                    //     navigate("/userdashboard")
-                    // }
-                    { navigate("/dashboard"); }
-                } else {
-                    console.log("error while connecting to the server");
-                }
-
-            }).catch((error) => {
-                console.log("inside catch", error);
-                setErrorMsg(true)
-                if (error.response) {
-                    console.log(error.response);
-                    console.log("server responded");
-                } else if (error.request) {
-                    console.log("network error");
-                } else {
-                    console.log(error);
-                }
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    
     const SignupSubmit = (signupe) => {
         signupe.preventDefault();
         setwfname(false);
@@ -283,7 +137,7 @@ const Form = () => {
         setwnum(false);
         setwpass(false);
         setwcpass(false);
-        if (upinput.fname === "a") {
+        if (upinput.fname === "") {
             setwfname(true);
         }
         else if (upinput.wmail === "") {
@@ -301,20 +155,7 @@ const Form = () => {
         else {
             alert("You have signed up successfully")
         }
-        // event.preventDefault();
         console.log("registration data", upinput);
-        // fetch("http://localhost/API/registration", {
-        // fetch("http://localhost:5000/users", {
-        //   method: "POST", // *GET, POST, PUT, DELETE, etc.
-        //   mode: "no-cors", // no-cors, *cors, same-origin
-        //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     // 'Content-Type': 'application/x-www-form-urlencoded',
-        //   },
-        //   body: JSON.stringify("sting",inp)}).then((res) => res.json()).then((result) => {console.log("result",result);
-        //   navigate("/login");
-        // })
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -329,16 +170,11 @@ const Form = () => {
                 <div className={`card ${card ? "active" : ""}`}>
                     <div className="user signup_form">
                         <div className="form">
-                            {/* <div className="grovia">
-                                <img src="https://imgur.com/RK0ywdZ.jpg" />
-                                <h2>Grovia</h2>
-                            </div> */}
                             <div className="grovia_txt">
                                 <h3>Sign up</h3>
                                 <h5>Signup for a new account</h5>
-                                {/* <p>Thank you for connecting with us Grovia,lets access our best recommendation contact for you.</p> */}
-                            </div>
 
+                            </div>
                             <form onSubmit={SignupSubmit}>
 
                                 <div className="input_div">
@@ -373,10 +209,6 @@ const Form = () => {
                                         <i onClick={ConfPassEye} className={`fa ${conf_eye ? "fa-eye-slash" : "fa-eye"}`}></i>
                                     </div>
                                 </div>
-                                {/* <div className="agree">
-                                    <span onClick={AgreeTick} className={` ${agree ? "agree_green" : ""}`} ><i className="fa fa-check"></i></span>
-                                    <p>Agree to the <a>Terms and Condition</a> of Grovia</p>
-                                </div> */}
                                 <div className="btn">
                                     <button type="submit">SIGN UP</button>
                                     <p>Already have an account? <a onClick={LoginPage} href="#">Login Now</a></p>
@@ -394,31 +226,20 @@ const Form = () => {
                             <img src="https://imgur.com/8averGS.jpg" />
                         </div>
                         <div className="form">
-                            {/* <div className="grovia">
-                                <img src="https://imgur.com/RK0ywdZ.jpg" />
-                                <h2>Grovia</h2>
-                            </div> */}
+
                             <div className="grovia_txt">
                                 <h3>Login</h3>
                                 <h5>Login to your account</h5>
-                                {/* <p>Thank you for get back to Grovia,lets access our best recommendation contact for you.</p> */}
+
                             </div>
-                            <div className="input_text">
+                            <div className="input_text" onChange={(e) => {setFormState(e.target.value) }}>
                                 <input type="text" />
                                 <span>Email</span>
                             </div>
                             <div className="input_text">
-                                <input type={login_pass} />
+                                <input type={login_pass} onChange={(e) => {setFormState(e.target.value) }} />
                                 <span>Password</span>
-                                {/* <i onClick={LoginEye} className={`fa ${login_eye ? "fa-eye-slash" : "fa-eye"}`}></i> */}
                             </div>
-                            {/* <div className="remember">
-                                <div className="agree">
-                                    <span onClick={RemTick} className={` ${remtick ? "rem_green" : ""}`} ><i className="fa fa-check"></i></span>
-                                    <p>Remember Me</p>
-                                </div>
-                                <a href="#">Reset Password?</a>
-                            </div> */}
                             <div className="btn">
                                 <button onClick={login}>SIGN IN</button>
                                 <p>Don't have an account yet? <a onClick={SignupPage} href="#">SignUp Now</a></p>
@@ -435,6 +256,5 @@ const Form = () => {
     );
 }
 
-// ReactDOM.render(<Form/>,document.getElementById("root"));
 
 export default Form;

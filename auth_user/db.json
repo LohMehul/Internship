@@ -112,19 +112,21 @@
       "id": 18
     },
     {
-      "fname": "fname",
-      "upemail": "fname@gmail.com",
-      "upnum": "123456789",
-      "uppass": "1123",
-      "confpass": "123",
+      "upinput": {
+        "fname": "",
+        "upemail": "",
+        "upnum": "",
+        "uppass": "",
+        "confpass": ""
+      },
       "id": 19
     },
     {
       "fname": "fname",
       "upemail": "fname@gmail.com",
       "upnum": "123456789",
-      "uppass": "1123",
-      "confpass": "123",
+      "uppass": "123456",
+      "confpass": "123456",
       "id": 20
     }
   ]
