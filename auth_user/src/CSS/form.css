@@ -80,10 +80,13 @@
     
 }
 .grovia_txt h3{
+    text-align: center;
     color:#c6270d;
-    margin-top:20px;
+    font-size: 2em;
+    margin-top:20%;
 }
 .grovia_txt h5{
+    text-align: center;
     margin-top:10px;
 }
 .grovia_txt p{
