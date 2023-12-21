@@ -16,7 +16,6 @@ const Form = () => {
     const [conf_eye, setconf_eye] = useState(true);
     const [signup_confpass, setsignup_confpass] = useState("password");
 
-    const [login_pass, setlogin_pass] = useState("password");
 
 
     const [formState, setFormState] = useState({
@@ -129,7 +128,7 @@ const Form = () => {
     //     }
     // }
 
-    
+
     const SignupSubmit = (signupe) => {
         signupe.preventDefault();
         setwfname(false);
@@ -237,7 +236,7 @@ const Form = () => {
                                 <span>Email</span>
                             </div>
                             <div className="input_text">
-                                <input type={login_pass} onChange={(e) => {setFormState(e.target.value) }} />
+                                <input type="password" onChange={(e) => {setFormState(e.target.value) }} />
                                 <span>Password</span>
                             </div>
                             <div className="btn">
