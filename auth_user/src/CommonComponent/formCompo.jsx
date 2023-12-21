@@ -81,6 +81,10 @@ const Form = () => {
     const [agree, setagree] = useState(false);
 
     const [remtick, setremtick] = useState(false);
+    const [formState, setFormState] = useState({
+        email: "",
+        password: ""
+    })
 
     const [upinput, setupinput] = useState({
         fname: "",
@@ -95,11 +99,28 @@ const Form = () => {
     const [wpass, setwpass] = useState(false);
     const [wcpass, setwcpass] = useState(false);
 
-
-    const handlechange = (e) =>{
+    const login = async (e) => {
         e.preventDefault();
-        console.log("value of handle change", e.target);
+        const response = await fetch('http://localhost:5000/users', {
+            method: "post",
+            credentials: "include",
+            headers: {
+                // needed so express parser says OK to read
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: formState.email,
+                email: formState.email,
+                uppass: formState.password
+            })
+        })
+        console.log("data",response);
+        if (response.status !== 200) {
+            return alert("Something went wrong");
+        }
+        navigate("/");
     }
+
     const LoginPage = () => {
         if (card) {
             setcard(false);
@@ -210,7 +231,7 @@ const Form = () => {
     //     }).then(response => { navigate("/dashboard"); console.log(response); })
     // }
 
-    const login = async (event) => {
+    const login1 = async (event) => {
         event.preventDefault();
         // console.log("save data", inp);
         // fetch(`https://jayramin.000webhostapp.com/loginget?username=${inp.username}&password=${inp.password}`).then((res) => res.json()).then((result) => {
@@ -225,32 +246,32 @@ const Form = () => {
         // });
         try {
             const response = await axios.get(`http://localhost:5000/users?upmail=${upinput.upemail}&uppass=${upinput.uppass}`).then((response) => {
-                    console.log("responce from login side",response);
-                    if (response.status === 200) {
-                        // console.log("server connected",response.data);
-                        console.log("server connected", response.data);
-                        // if (response.data[0].role == 1) {
-                        //     navigate("/admindashboard")
-                        // } else {
-                        //     navigate("/userdashboard")
-                        // }
-                        { navigate("/dashboard");}
-                    } else {
-                        console.log("error while connecting to the server");
-                    }
-                    
-                }).catch((error) => {
-                    console.log("inside catch", error);
-                    setErrorMsg(true)
-                    if (error.response) {
-                        console.log(error.response);
-                        console.log("server responded");
-                    } else if (error.request) {
-                        console.log("network error");
-                    } else {
-                        console.log(error);
-                    }
-                });
+                console.log("responce from login side", response);
+                if (response.status === 200) {
+                    // console.log("server connected",response.data);
+                    console.log("server connected", response.data);
+                    // if (response.data[0].role == 1) {
+                    //     navigate("/admindashboard")
+                    // } else {
+                    //     navigate("/userdashboard")
+                    // }
+                    { navigate("/dashboard"); }
+                } else {
+                    console.log("error while connecting to the server");
+                }
+
+            }).catch((error) => {
+                console.log("inside catch", error);
+                setErrorMsg(true)
+                if (error.response) {
+                    console.log(error.response);
+                    console.log("server responded");
+                } else if (error.request) {
+                    console.log("network error");
+                } else {
+                    console.log(error);
+                }
+            });
         } catch (error) {
             console.log(error);
         }
@@ -383,7 +404,7 @@ const Form = () => {
                                 {/* <p>Thank you for get back to Grovia,lets access our best recommendation contact for you.</p> */}
                             </div>
                             <div className="input_text">
-                                <input type="text" onBlur={handlechange}/>
+                                <input type="text" />
                                 <span>Email</span>
                             </div>
                             <div className="input_text">
