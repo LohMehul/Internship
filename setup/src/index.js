@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
+// import "react-toastify/dist/react-toastify.css";
  
 const root = ReactDOM.createRoot(document.getElementById('root'));
-axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+//////////////////////////////////////// for login page /////////////////////////////////////////////////////////////
+
+// axios.defaults.baseURL = process.env.REACT_APP_API_URL
  
-axios.interceptors.request.use(function (config) {
-  config.headers['X-Binarybox-Api-Key'] = process.env.REACT_APP_API_KEY;
-  return config;
-});
- 
+// axios.interceptors.request.use(function (config) {
+//   config.headers['X-Binarybox-Api-Key'] = process.env.REACT_APP_API_KEY;
+//   return config;
+// });
  
 root.render(
   <React.StrictMode>

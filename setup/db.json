@@ -1,133 +1,39 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
-      "username": "admin",
+      "name": "qwerty",
+      "password": "1234567",
+      "email": "mail@mail.com",
+      "phone": "121212121212",
+      "id": 1
+    },
+    {
+      "name": "test2",
       "password": "123",
-      "email": "test@mail",
-      "role": 1,
+      "email": "123@123.1123.com",
+      "phone": "23123123123",
+      "id": 2
+    },
+    {
+      "name": "test2",
+      "password": "123",
+      "email": "123@123.1123.com",
+      "phone": "21232123",
+      "id": 3
+    },
+    {
+      "name": "qweqwe",
+      "password": "234234234",
+      "email": "234@234.234",
+      "phone": "432432432432",
+      "id": 4
+    },
+    {
+      "name": "qwe",
+      "password": "123432qwe",
+      "email": "123@123.123",
+      "phone": "1231123123123",
       "id": 5
-    },
-    {
-      "username": "test1705",
-      "password": "1705",
-      "email": "test@mail",
-      "role": 2,
-      "id": 6
-    },
-    {
-      "username": "may19",
-      "email": "may19@mail.com",
-      "password": "123",
-      "role": 2,
-      "id": 7
-    },
-    {
-      "username": "test",
-      "password": "123",
-      "roll": 2,
-      "id": 8
-    },
-    {
-      "roll": 2,
-      "username": "test1",
-      "email": "test1@mail.com",
-      "password": "123",
-      "id": 9
-    },
-    {
-      "roll": 2,
-      "username": "test3",
-      "email": "test3@mail.com",
-      "password": "123",
-      "id": 10
-    },
-    {
-      "roll": 2,
-      "username": "test3",
-      "email": "test3@mail.com",
-      "password": "123",
-      "id": 11
-    },
-    {
-      "roll": 2,
-      "password": "123456",
-      "username": "gdfgdfgdgdg",
-      "email": "NKCSL@MDWL.COM",
-      "id": 12
-    },
-    {
-      "roll": 2,
-      "username": "test11",
-      "email": "test11@mail.com",
-      "password": "123",
-      "id": 13
-    },
-    {
-      "roll": 2,
-      "username": "test11",
-      "email": "test11@mail.com",
-      "password": "123",
-      "id": 14
-    },
-    {
-      "roll": 2,
-      "username": "test11",
-      "email": "test11@mail.com",
-      "password": "123",
-      "id": 15
-    },
-    {
-      "id": 16
-    },
-    {
-      "roll": 2,
-      "username": "User1212",
-      "email": "user1212@mail.com",
-      "password": "123123",
-      "id": 17
-    },
-    {
-      "fname": "fname",
-      "upemail": "fname@gmail.com",
-      "upnum": "12345",
-      "uppass": "123",
-      "confpass": "123",
-      "id": 18
-    },
-    {
-      "upinput": {
-        "fname": "",
-        "upemail": "",
-        "upnum": "",
-        "uppass": "",
-        "confpass": ""
-      },
-      "id": 19
-    },
-    {
-      "fname": "fname",
-      "upemail": "fname@gmail.com",
-      "upnum": "123456789",
-      "uppass": "123456",
-      "confpass": "123456",
-      "id": 20
     }
   ]
 }
