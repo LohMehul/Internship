@@ -122,30 +122,30 @@ const Login = () => {
 
     }
     return (
-        <div className='offset-lg-3 col-lg-6'>
-            <form onSubmit={proceedlogin} className="container">
-            <div className="card ">
-                <div className="card-header">
-                    <h2>User Registration</h2>
-
-                </div>
-                <div className="card-body">
-                    <div className="form-group">
-                        <label>User Name <span style={{ color: "red" }}>*</span></label>
-                        <input type="text" value={usename} onChange={e => updateUsername(e.target.value)} className='form-control' />
+        <>
+            <div className='offset-lg-3 col-lg-6'>
+                <form onSubmit={proceedlogin} className="container">
+                    <div className="card ">
+                        <div className="card-header">
+                            <h1 className='text-center'>Login Page</h1>
+                        </div>
+                        <div className="card-body">
+                            <div className="form-group">
+                                <label>User Name <span style={{ color: "red" }}>*</span></label>
+                                <input type="text" value={usename} onChange={e => updateUsername(e.target.value)} className='form-control' />
+                            </div>
+                            <div className="form-group">
+                                <label>Password <span style={{ color: "red" }}>*</span></label>
+                                <input value={password} onChange={e => updatePassword(e.target.value)} type="password" className='form-control' />
+                            </div>
+                        </div>
+                        <div className="card-footer">
+                            <button type='submit' className='btn btn-primary'> Register</button>
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Password <span style={{ color: "red" }}>*</span></label>
-                        <input value={password} onChange={e => updatePassword(e.target.value)} type="password" className='form-control' />
-                    </div>
-                </div>
-                <div className="card-footer">
-                    <button type='submit' className='btn btn-primary'> Register</button>
-                </div>
+                </form>
             </div>
-            </form>
-            <h1 className='text-center'>login page</h1>
-        </div>
+        </>
     );
 };
 
