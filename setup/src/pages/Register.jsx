@@ -152,6 +152,7 @@
 
 
 
+import { Toast } from 'bootstrap';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -166,15 +167,39 @@ const Register = () => {
 
 
     const Isvalidate = () => {
-        let Isproceed = true
+        let Isproceed = true;
+        let errormsg = "please Enter the value of"
+        if (name === "" || name === null) {
+            Isproceed = false;
+            errormsg += " username"
+            // alert (errormsg);
+        }
+        if (password === "" || password === null) {
+            Isproceed = false;
+            errormsg += " password"
+            // alert (errormsg);
+        }
+        if (phone === "" || phone === null) {
+            Isproceed = false;
+            errormsg += " Mobile Number"
+            // alert (errormsg);
+        }
+        if (email === "" || email === null) {
+            Isproceed = false;
+            errormsg += " Email"
+            // alert (errormsg);
+        }
+        if(!Isproceed){
+            alert(errormsg)
+        }
         return Isproceed;
 
     }
 
     const handlesubmit = (e) => {
+        e.preventDefault();
+        let payload = { name, password, email, phone };
         if (Isvalidate()) {
-            e.preventDefault();
-            let payload = { name, password, email, phone };
             console.log(payload);
 
             fetch("http://localhost:5000/users", {
