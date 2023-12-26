@@ -14,7 +14,7 @@ function Register() {
  
     useEffect(()=>{
         if(localStorage.getItem('token') != "" && localStorage.getItem('token') != null){
-            navigate("/dashboard");
+            navigate("/");
         }
     },[])
  
@@ -31,7 +31,7 @@ function Register() {
         .then((r) => {
             setIsSubmitting(false)
             localStorage.setItem('token', r.data.token)
-            navigate("/dashboard");
+            navigate("/");
             console.log("data from register",r.data);
         })
         .catch((e) => {
