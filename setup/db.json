@@ -20,27 +20,6 @@
       "email": "123@123.1123.com",
       "phone": "21232123",
       "id": 3
-    },
-    {
-      "name": "qweqwe",
-      "password": "234234234",
-      "email": "234@234.234",
-      "phone": "432432432432",
-      "id": 4
-    },
-    {
-      "name": "qwe",
-      "password": "123432qwe",
-      "email": "123@123.123",
-      "phone": "1231123123123",
-      "id": 5
-    },
-    {
-      "name": "zsdf",
-      "password": "dsaefrasfsaf",
-      "email": "qwe@q3we.sdf",
-      "phone": "ASDADDFA",
-      "id": 6
     }
   ]
 }
