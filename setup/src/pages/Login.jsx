@@ -115,6 +115,9 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import loginForm from "./loginfrom"
 import { useNavigate } from 'react-router-dom';
+import { Button, Checkbox, Form, Input } from 'antd';
+import Password from 'antd/es/input/Password';
+
 
 const Login = () => {
 
@@ -157,13 +160,12 @@ const Login = () => {
                     console.log('User Data:', userData);
                     console.log(userData.length);
                     console.log("userdata at api", userData[0].username);
-                    if (status==200) {
-                        for (let i = 0; i <= userData.length; i++) {
-                            if (userData[i].username == username && userData[i].password == password) {
-                                history("/");
-                                console.log("inside a for loop user");
-                                break;
-                            }
+
+                    for (let i = 0; i <= userData.length; i++) {
+                        if (userData[i].username == username && userData[i].password == password) {
+                            history("/deshboard");
+                            console.log("inside a for loop user");
+                            break;
                         }
                     }
                 })
@@ -217,7 +219,53 @@ const Login = () => {
                         </div>
                     </div>
                 </form>
-                <loginForm/>
+                {/* <loginForm/> */}
+                {/* <Form onSubmit={proceedlogin}
+                    name="basic"
+                    labelCol={{ span: 8, }}
+                    wrapperCol={{ span: 16, }}
+                    style={{ maxWidth: 600, }}
+                    initialValues={{ remember: true, }} autoComplete="off">
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your username!',
+                            },]}>
+                        <Input value={username} onChange={e => updateUsername(e.target.value)}/>
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your password!',
+                            },]}>
+                        <Input.Password value={Password} onChange={e => updatePassword(e.target.value)} />
+                    </Form.Item>
+
+                    <Form.Item
+                        name="remember"
+                        valuePropName="checked"
+                        wrapperCol={{ offset: 8, span: 16, }}>
+                    </Form.Item>
+
+                    <Form.Item
+                        wrapperCol={{
+                            offset: 8,
+                            span: 16,
+                        }}
+                    >
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
+                        <Link to="/register"><button type='text' className='btn btn-success'>Sign UP</button></Link>
+                    </Form.Item>
+                </Form> */}
             </div>
         </>
     );
