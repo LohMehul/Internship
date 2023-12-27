@@ -1,5 +1,5 @@
 import React from 'react';
-import { <Layout></Layout> } from 'antd';
+import { Layout } from 'antd';
 import Home from '../pages/Home';
 import { Link } from 'react-router-dom';
 import "./layout.css"
