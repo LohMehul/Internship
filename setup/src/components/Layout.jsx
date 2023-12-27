@@ -1,20 +1,14 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { <Layout></Layout> } from 'antd';
 import Home from '../pages/Home';
 import { Link } from 'react-router-dom';
 import "./layout.css"
 
 
 
-const { Header, Content, Footer } = Layout;
-const items = new Array(15).fill(null).map((_, index) => ({
-  key: index + 1,
-  label: `nav ${index + 1}`,
-}));
+const { Header} = Layout;
+
 const App = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
   return (
     <Layout>
       <Header
