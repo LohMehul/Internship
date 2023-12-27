@@ -111,15 +111,47 @@
 
 
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Login = () => {
 
-    const [usename, updateUsername] = useState("");
+    const [username, updateUsername] = useState("");
     const [password, updatePassword] = useState("");
 
 
-    const proceedlogin = () => {
+    const proceedlogin = (e) => {
+        e.preventDefault();
+        if (validate()) {
+            // console.log("processing");
+            fetch("http://localhost:5000/users/"+ username).then((res) => {
+                return res.json()
+            }).then((response) =>{
+                console.log(response);
+            }).catch((err)=>{
+                alert("error due to" + err.message)
+            }
+            )
+        }
+    }
+    // console.log(username);
+    // console.log(password);
 
+    const validate = () => {
+        let result = true;
+        // const errormsg = "please Enter "
+        if (username === "" || username === null) {
+            result = false
+            // errormsg += " username"
+            alert("please Enter User name")
+            // alert (errormsg);
+        }
+        if (password === "" || password === null) {
+            alert("please Enter Password")
+            result = false
+            // errormsg += " password"
+            // alert (errormsg);
+        }
+        return result;
     }
     return (
         <>
@@ -132,7 +164,7 @@ const Login = () => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label>User Name <span style={{ color: "red" }}>*</span></label>
-                                <input type="text" value={usename} onChange={e => updateUsername(e.target.value)} className='form-control' />
+                                <input type="text" value={username} onChange={e => updateUsername(e.target.value)} className='form-control' />
                             </div>
                             <div className="form-group">
                                 <label>Password <span style={{ color: "red" }}>*</span></label>
@@ -140,7 +172,8 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button type='submit' className='btn btn-primary'> Register</button>
+                            <button type='submit'  className='btn btn-primary'>Login</button> &nbsp;
+                            <Link to="/register"><button type='text' className='btn btn-success'>Sign UP</button></Link>
                         </div>
                     </div>
                 </form>

@@ -152,13 +152,15 @@
 
 
 
-import { Toast } from 'bootstrap';
+// import { Toast } from 'bootstrap';   
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+
 const Register = () => {
 
-    const [name, namechange] = useState("");
+    const [username, namechange] = useState("");
     const [password, passwordchange] = useState("");
     const [email, emailchange] = useState("");
     const [phone, phonechange] = useState("");
@@ -169,7 +171,7 @@ const Register = () => {
     const Isvalidate = () => {
         let Isproceed = true;
         let errormsg = "please Enter the value of"
-        if (name === "" || name === null) {
+        if (username === "" || username === null) {
             Isproceed = false;
             errormsg += " username"
             // alert (errormsg);
@@ -193,15 +195,13 @@ const Register = () => {
             alert(errormsg)
         }
         return Isproceed;
-
     }
 
     const handlesubmit = (e) => {
         e.preventDefault();
-        let payload = { name, password, email, phone };
+        let payload = { username, password, email, phone };
         if (Isvalidate()) {
             console.log(payload);
-
             fetch("http://localhost:5000/users", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
@@ -212,15 +212,9 @@ const Register = () => {
                 history("/login")
             }).catch((err) => {
                 toast.success("Failed :", err.message);
-
             });
-
         }
     }
-
-
-
-
     return (
         <div>
             <div className='offset-lg-3 col-lg-6'>
@@ -228,14 +222,13 @@ const Register = () => {
                     <div className="card">
                         <div className="card-header">
                             <h2>User Registration</h2>
-
                         </div>
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>User Name <span style={{ color: "red" }}>*</span></label>
-                                        <input type="text" value={name} onChange={e => namechange(e.target.value)} className='form-control' />
+                                        <input type="text" value={username} onChange={e => namechange(e.target.value)} className='form-control' />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -259,7 +252,8 @@ const Register = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button type='submit' className='btn btn-primary'> Register</button>
+                            <button type='submit' className='btn btn-primary'> Register</button> &nbsp;
+                            <Link to="/login"><button type='text' className='btn btn-success'>Login</button></Link>
                         </div>
                     </div>
                 </form>
