@@ -1,24 +1,24 @@
 {
   "users": [
     {
-      "name": "qwerty",
-      "password": "1234567",
-      "email": "mail@mail.com",
-      "phone": "121212121212",
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@admin.com",
+      "phone": "1212121212",
       "id": 1
     },
     {
-      "name": "test2",
-      "password": "123",
-      "email": "123@123.1123.com",
-      "phone": "23123123123",
+      "username": "asdf",
+      "password": "asdf",
+      "email": "xzC@dfg",
+      "phone": "asd",
       "id": 2
     },
     {
-      "name": "test2",
-      "password": "123",
-      "email": "123@123.1123.com",
-      "phone": "21232123",
+      "username": "test1",
+      "password": "test1",
+      "email": "123@123.123",
+      "phone": "123123123",
       "id": 3
     }
   ]

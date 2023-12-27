@@ -113,24 +113,63 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import loginForm from "./loginfrom"
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
 
     const [username, updateUsername] = useState("");
     const [password, updatePassword] = useState("");
 
+    const history = useNavigate();
+
 
     const proceedlogin = (e) => {
         e.preventDefault();
         if (validate()) {
-            // console.log("processing");
-            fetch("http://localhost:5000/users/"+ username).then((res) => {
-                return res.json()
-            }).then((response) =>{
-                console.log(response);
-            }).catch((err)=>{
-                alert("error due to" + err.message)
-            }
-            )
+            console.log("processing");
+            // fetch("http://localhost:5000/users/").then((res) => {
+            //     return res.json();
+            // }).then((respo) => {
+            //     console.log("login data responce is",respo);
+            //     let data = JSON.stringify(respo);
+            //     console.log("data log is", data.name);
+            //     // if (data.name===username && data.password===password) {
+            //     //     history("/")                    
+            //     // }
+            //     // else{
+            //     //     alert("enter valid username or password")
+            //     // }
+
+            // }).catch((err) => {
+            //     alert("error due to" + err.message)
+            // }
+            // )
+            fetch("http://localhost:5000/users/")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(userData => {
+                    // Process the retrieved user data
+                    console.log('User Data:', userData);
+                    console.log(userData.length);
+                    console.log("userdata at api", userData[0].username);
+                    if (status==200) {
+                        for (let i = 0; i <= userData.length; i++) {
+                            if (userData[i].username == username && userData[i].password == password) {
+                                history("/");
+                                console.log("inside a for loop user");
+                                break;
+                            }
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
     }
     // console.log(username);
@@ -159,7 +198,8 @@ const Login = () => {
                 <form onSubmit={proceedlogin} className="container">
                     <div className="card ">
                         <div className="card-header">
-                            <h1 className='text-center'>Login Page</h1>
+                            <span><Link to="/" className='text-muted display-6'><i className="fa-solid fa-house"></i></Link></span>
+                            <h1 className='text-center d-inline'>Login Page</h1>
                         </div>
                         <div className="card-body">
                             <div className="form-group">
@@ -172,11 +212,12 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button type='submit'  className='btn btn-primary'>Login</button> &nbsp;
+                            <button type='submit' className='btn btn-primary'>Login</button> &nbsp;
                             <Link to="/register"><button type='text' className='btn btn-success'>Sign UP</button></Link>
                         </div>
                     </div>
                 </form>
+                <loginForm/>
             </div>
         </>
     );

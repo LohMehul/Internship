@@ -221,7 +221,9 @@ const Register = () => {
                 <form className='container' onSubmit={handlesubmit}>
                     <div className="card">
                         <div className="card-header">
-                            <h2>User Registration</h2>
+                        {/* <FontAwesomeIcon icon="fa-solid fa-house" /> */}
+                        <span><Link to="/" className='text-muted display-6'><i className="fa-solid fa-house"></i></Link></span>
+                            <h2 className='mr-4'>User Registration</h2>
                         </div>
                         <div className="card-body">
                             <div className="row">
