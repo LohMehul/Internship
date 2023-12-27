@@ -197,7 +197,7 @@ const Login = () => {
     return (
         <>
             <div className='offset-lg-3 col-lg-6'>
-                <Form onSubmit={proceedlogin} className="container">
+                <form onSubmit={proceedlogin} className="container">
                     <div className="card ">
                         <div className="card-header">
                             
@@ -214,11 +214,11 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <Button type='submit' className='btn btn-primary'>Login</Button> &nbsp;
-                            <Link to="/register"><Button type='primary' >Sign UP</Button></Link>
+                            <button type='submit' className='btn btn-primary'>Login</button> &nbsp;
+                            <Link to="/register"><button type='primary' className='btn btn-warning' >Sign UP</button></Link>
                         </div>
                     </div>
-                </Form>
+                </form>
                 {/* <loginForm/> */}
                 {/* <Form onSubmit={proceedlogin}
                     name="basic"
