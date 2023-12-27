@@ -5,17 +5,17 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"  
 import {ToastContainer} from "react-toastify"   // not working
-
+import Layout from "./components/Layout";
 function App() {
   return (
     <div className="App">
       <ToastContainer></ToastContainer> 
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/deshboard" element={<Dashboard />} />
+          <Route exact path="/" element={<><Layout /><Home/></>} />
+          <Route path="/login" element={<><Layout /><Login /></>} />
+          <Route path="/register" element={<><Layout /><Register /></>} />
+          <Route path="/deshboard" element={<><Layout /><Dashboard /></>} />
         </Routes>
       </Router>
     </div>

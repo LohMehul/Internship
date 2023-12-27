@@ -200,7 +200,7 @@ const Login = () => {
                 <form onSubmit={proceedlogin} className="container">
                     <div className="card ">
                         <div className="card-header">
-                            <span><Link to="/" className='text-muted display-6'><i className="fa-solid fa-house"></i></Link></span>
+                            
                             <h1 className='text-center d-inline'>Login Page</h1>
                         </div>
                         <div className="card-body">

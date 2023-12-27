@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.font-color{
+    color: white;
+    font-size: 20px;
+    border: none;
+    margin: 20px;
+
+}
+.nav-logo{
+    color: white;
+    font-size: 25px;
+    margin: 20px;
+}

@@ -4,7 +4,6 @@ function Home(props) {
     return (
         <div>
            <h1 className='text-center'>Home page </h1>
-        <Link to="/login"> login</Link>
         </div>
     );
 }
