@@ -157,6 +157,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { Button, Checkbox, Form, Input } from 'antd';
 
 const Register = () => {
 
@@ -254,8 +255,8 @@ const Register = () => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button type='submit' className='btn btn-primary'> Register</button> &nbsp;
-                            <Link to="/login"><button type='text' className='btn btn-success'>Login</button></Link>
+                            <Button type='submit' className='btn btn-primary'> Register</Button> &nbsp;
+                            <Link to="/login"><Button type='text' className='btn btn-success'>Login</Button></Link>
                         </div>
                     </div>
                 </form>
