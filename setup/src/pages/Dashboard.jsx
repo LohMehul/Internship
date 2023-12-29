@@ -59,6 +59,8 @@ class App extends React.Component {
         };
     }
 
+
+
     // ComponentDidMount is used to
     // execute the code
     componentDidMount() {
@@ -71,8 +73,22 @@ class App extends React.Component {
                 });
             });
     }
+
     render() {
         const { DataisLoaded, items } = this.state;
+        console.log(items);
+
+
+        const handelDelete = (id) => {
+            var index = items.map(function (e) {
+                return e.id;
+
+            }).indexOf(id);
+
+            items.splice(index, 1);
+
+
+        }
         if (!DataisLoaded)
             return (
                 <div>
@@ -96,16 +112,16 @@ class App extends React.Component {
                         </thead>
                         <tbody>
                             {
-                                items.map((user,index)=>{
+                                items.map((user, index) => {
                                     return <tr key={index}>
-                                    <td className="br">{user.id}</td>
-                                    <td className="br">{user.username}</td>
-                                    <td className="br">{user.phone}</td>
-                                    <td className="br">{user.email}</td>
-                                    <td className="br">
-                                        <button className="button">Edit</button>&nbsp;&nbsp;&nbsp;
-                                        <button className="button" onClick={()=>{alert((user.id)+" item is called")}}>Delete</button>
-                                    </td>
+                                        <td className="br">{user.id}</td>
+                                        <td className="br">{user.username}</td>
+                                        <td className="br">{user.phone}</td>
+                                        <td className="br">{user.email}</td>
+                                        <td className="br">
+                                            <button className="button">Edit</button>&nbsp;&nbsp;&nbsp;
+                                            <button className="button" onClick={() => { handelDelete(user.id)}}>Delete</button>
+                                        </td>
                                     </tr>
                                 })
                             }
