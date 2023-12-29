@@ -34,6 +34,20 @@
       "email": "asd@asd",
       "phone": "asd",
       "id": 5
+    },
+    {
+      "username": "user1",
+      "password": "user1",
+      "email": "1212@1212",
+      "phone": "12121212",
+      "id": 6
+    },
+    {
+      "username": "atulbhai",
+      "password": "atul",
+      "email": "atul@atul.atul",
+      "phone": "9976546583",
+      "id": 7
     }
   ]
 }

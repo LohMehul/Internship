@@ -15,3 +15,8 @@ code {
 .spc{
  margin: 15px 15px 15px 15px;
 }
+
+.btn{
+  background-color: blue;
+  padding:5px;
+}

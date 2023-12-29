@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: rgba(0, 253, 135, 0.863);
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+.hr-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+table,
+th,
+tr,
+td {
+    border: 1px solid black;
+}
+
+.th {
+    text-align: center;
+    background-color: #f9ffa9;
+    font-size: 20px;
+    color: rgba(26, 110, 71, 0.863);
+}
+
+.br {
+    border: 1px solid black;
+    padding: 5px 50px;
+}
