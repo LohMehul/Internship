@@ -1,22 +1,23 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Dashboard from './Components/Dashboard';
-import Homepage from './Components/Homepage';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './PrivateRoute';
+import Login from './Login';
+import Logout from './Logout';
+import Dashboard from './Dashboard'; // Create a Dashboard component for demonstration
 
-
-const App = () => {
-
+function App() {
   return (
-    <div>
-      <h1 className="">Auth-Application</h1>
-      <BrowserRouter>
+    <Router>
+      <div className="App">
         <Routes>
-          <Route path="/" element={<Homepage/>} />
-          {/* <Route path="/Dashboard" element={<Dashboard/>} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <ProtectedRoute path="/dashboard" element={<Dashboard />} />
+          {/* Add more protected routes as needed */}
         </Routes>
-      </BrowserRouter>
-    </div>
-  )
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
