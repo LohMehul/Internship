@@ -14,10 +14,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.row{
-    display: flex;
-    flex-wrap: wrap;
-}
+
 table,
 th,
 tr,
@@ -35,18 +32,4 @@ td {
 .br {
     border: 1px solid black;
     padding: 5px 50px;
-}
-
-.srch{
-    margin: 10px;
-}
-.srch input{
-    padding:5px 0 ;
-
-}
-
-.srch button{
-        background-color: rgba(84, 182, 136, 0.863);
-        padding: 5px 15px;
-        border-radius: 5px;
 }
