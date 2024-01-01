@@ -48,6 +48,7 @@
 import React from "react";
 // import "./App.css";
 import "./pages.css"
+import { SearchOutlined } from '@ant-design/icons';
 class App extends React.Component {
     // Constructor
     constructor(props) {
@@ -76,19 +77,25 @@ class App extends React.Component {
 
     render() {
         const { DataisLoaded, items } = this.state;
-        console.log(items);
+        // const handelDelete = (id) => {
+        //     var index = items.map(function (e) {
+        //         return e.id;
+
+        //     }).indexOf(id);
+
+        //     items.splice(index, 1);
 
 
-        const handelDelete = (id) => {
+        // }
+        const handleDelete = (id) => {
+            alert("Button Clicked!");
+            console.log("handle delete items in array", items);
             var index = items.map(function (e) {
                 return e.id;
-
             }).indexOf(id);
-
             items.splice(index, 1);
 
-
-        }
+        };
         if (!DataisLoaded)
             return (
                 <div>
@@ -100,6 +107,20 @@ class App extends React.Component {
             <div className="container">
                 <div className="mt-3">
                     <h1>User Data</h1>
+                    <div className="row">
+                        <div className="srch"><input type="text" />
+                            <button className="button-srch">Search <SearchOutlined /></button>
+                        </div>
+                        <div className="short srch">
+                            <label for="short">Short By</label>
+                            <select id="cars" name="short">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                    </div>
                     <table className="table-user">
                         <thead >
                             <tr>
@@ -120,7 +141,7 @@ class App extends React.Component {
                                         <td className="br">{user.email}</td>
                                         <td className="br">
                                             <button className="button">Edit</button>&nbsp;&nbsp;&nbsp;
-                                            <button className="button" onClick={() => { handelDelete(user.id)}}>Delete</button>
+                                            <button className="button" onClick={() => { handleDelete(user.id) }}>Delete</button>
                                         </td>
                                     </tr>
                                 })
