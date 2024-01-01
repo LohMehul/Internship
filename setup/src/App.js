@@ -19,7 +19,7 @@ function App() {
           <Route path="/login" element={<><Layout /><Login /></>} />
           <Route path="/register" element={<><Layout /><Register /></>} />
           <Route path="/logout" element={<><UserLayout /><Logout /></>} />
-          <Route path="/deshboard" element={<><Layout/><Dashboard /></>} />
+          <Route path="/dashboard" element={<><Layout/><Dashboard /></>} />
           <Route path="/user" element={<><Layout/><UserDashboard /></>} />
         </Routes>
       </Router>

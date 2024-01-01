@@ -24,10 +24,10 @@ function UserPage() {
         console.log(data);
         console.log("indexof",index)
         console.log("ID",id)
-        setData(data);
+        // setData(data);
+        // setData(data);
         data.splice(index, 1);
-        history("/user")
-        setData(data)
+        history("/user");
     }
 
     useEffect(() => {

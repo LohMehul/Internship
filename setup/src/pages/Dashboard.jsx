@@ -30,7 +30,7 @@ class App extends React.Component {
 
     render() {
         const { DataisLoaded, items } = this.state;
-        console.log({items});
+        console.log(items);
         
 
         function handelDelete(id){
@@ -38,16 +38,22 @@ class App extends React.Component {
                 return e.id;
 
             }).indexOf(id);
-            console.log("is is : ",id);
-            console.log("indexis : ", index);
-            console.log(" before delete array is :",items);
-            items.splice(index, 1);
-            console.log("after Delete array is :",items);
-     
-            
+
+            // var data = new Array;
+            // data = items.filter(!index)
+            // console.log("new data in saperate array",data);
+
+
+            // console.log("is is : ",id);
+            // console.log("indexis : ", index);
+            // console.log(" before delete array is :",items);
+            // items.splice(index, 1);
+            // console.log("after Delete array is :",items);
+
+
 
         }
-        console.log("out side handle ckick button",items);
+        
         if (!DataisLoaded)
             return (
                 <div>
@@ -79,7 +85,7 @@ class App extends React.Component {
                                         <td className="br">{user.email}</td>
                                         <td className="br">
                                             <button className="button">Edit</button>&nbsp;&nbsp;&nbsp;
-                                            <button className="button" onClick={() => { alert(user.id)}}>Delete</button>
+                                            <button className="button" onClick={() => { handelDelete(user.id)}}>Delete</button>
                                         </td>
                                     </tr>
                                 })
