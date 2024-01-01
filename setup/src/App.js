@@ -8,6 +8,7 @@ import Logout from "./pages/logoutextra"
 import {ToastContainer} from "react-toastify"   // not working
 import Layout from "./components/Layout";
 import UserLayout from "./components/userlayout.jsx"
+import UserDashboard from "./pages/userPage.jsx"   //
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Route path="/register" element={<><Layout /><Register /></>} />
           <Route path="/logout" element={<><UserLayout /><Logout /></>} />
           <Route path="/deshboard" element={<><Layout/><Dashboard /></>} />
+          <Route path="/user" element={<><Layout/><UserDashboard /></>} />
         </Routes>
       </Router>
      <Outlet/>

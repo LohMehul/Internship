@@ -1,52 +1,6 @@
-// import React, { useState, useEffect } from "react";
 
-// function App() {
-//   const url = "http://localhost:5000/users";
-//   const [data, setData] = useState([]);
-
-//   const fetchInfo = () => {
-//     return fetch(url)
-//       .then((res) => res.json())
-//       .then((d) => setData(d))
-//   }
-
-
-//   useEffect(() => {
-//     fetchInfo();
-//   }, []);
-//   console.log();
-
-//   return (
-//     <div className="App">
-//         {data.map((dataObj, index) => {
-//           return (
-//               <table>
-//                 <thead>
-//                     <tr>
-//                         <td style={{marginLeft:"15px"}}>Username</td>
-//                         <td style={{marginLeft:"15px"}}>Mobile Number </td>
-//                         <td style={{marginLeft:"15px"}}>Email</td>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     <tr>
-//                         <td>{dataObj.username}</td>
-//                         <td>{dataObj.phone}</td>
-//                         <td>{dataObj.email}</td>
-//                     </tr>
-//                 </tbody>
-//               </table>
-
-//           );
-//         })}
-//     </div>
-//   );
-// }
-
-// export default App;
 
 import React from "react";
-// import "./App.css";
 import "./pages.css"
 class App extends React.Component {
     // Constructor
@@ -76,19 +30,24 @@ class App extends React.Component {
 
     render() {
         const { DataisLoaded, items } = this.state;
-        console.log(items);
+        console.log({items});
+        
 
-
-        const handelDelete = (id) => {
+        function handelDelete(id){
             var index = items.map(function (e) {
                 return e.id;
 
             }).indexOf(id);
-
+            console.log("is is : ",id);
+            console.log("indexis : ", index);
+            console.log(" before delete array is :",items);
             items.splice(index, 1);
-
+            console.log("after Delete array is :",items);
+     
+            
 
         }
+        console.log("out side handle ckick button",items);
         if (!DataisLoaded)
             return (
                 <div>
@@ -120,7 +79,7 @@ class App extends React.Component {
                                         <td className="br">{user.email}</td>
                                         <td className="br">
                                             <button className="button">Edit</button>&nbsp;&nbsp;&nbsp;
-                                            <button className="button" onClick={() => { handelDelete(user.id)}}>Delete</button>
+                                            <button className="button" onClick={() => { alert(user.id)}}>Delete</button>
                                         </td>
                                     </tr>
                                 })
@@ -129,35 +88,6 @@ class App extends React.Component {
                     </table>
                 </div>
             </div>
-
-
-            // <div className="App">
-            //    <h1 style={{textAlign:"center"}}>User Data</h1>
-            //     <div className="container hr-card">
-            //         {items.map((item) => (
-            //             <div className="item">
-            //                 <ol key={item.id}>
-            //                     <div>
-            //                         <strong>
-            //                             {"User_Name: "}
-            //                         </strong>
-            //                         {item.username},
-            //                     </div>
-            //                     <div>
-            //                         phone: {item.phone},
-            //                     </div>
-            //                     <div>
-            //                         Email: {item.email}
-            //                     </div>
-            //                     <div>
-            //                        <button className="button"> Edit</button>&nbsp;&nbsp;&nbsp;
-            //                        <button className="button"> Delete</button>
-            //                     </div>
-            //                 </ol>
-            //             </div>
-            //         ))}
-            //     </div>
-            // </div>
         );
     }
 }

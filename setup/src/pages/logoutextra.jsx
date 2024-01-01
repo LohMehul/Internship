@@ -34,6 +34,7 @@ function App() {
         localStorage.removeItem("token-info");
         setIsLoggedin(false);
         history("/")
+        alert("you are logged out");
     };
  
     return (

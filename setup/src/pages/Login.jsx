@@ -168,10 +168,17 @@ const Login = () => {
                             break;
                         }
                     }
+                    
+                    localStorage.setItem(
+                    "token-info",
+                    JSON.stringify(userData)
+                    );
+                    updateUsername("");
+                    updatePassword("");
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                });
+            });
         }
     }
     // console.log(username);

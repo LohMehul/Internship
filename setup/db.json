@@ -48,6 +48,13 @@
       "email": "atul@atul.atul",
       "phone": "9976546583",
       "id": 7
+    },
+    {
+      "username": "user2",
+      "password": "user2",
+      "email": "user2@user2.user2",
+      "phone": "2323232323",
+      "id": 8
     }
   ]
 }
